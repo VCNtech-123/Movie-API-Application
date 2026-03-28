@@ -1,1 +1,24 @@
 @import "tailwindcss";
+
+@theme {
+  /* Backgrounds */
+  --background-image-body-bg: linear-gradient(180deg, #0f0f0f 0%, #080808 50%, #000000 100%);
+  --color-primary-bg: #000000;
+  --color-secondary-bg: #18181b; /* zinc-900 */
+  --color-tertiary-bg: #27272a;  /* zinc-800 */
+
+  /* Text Colors */
+  --color-primary-text: #ffffff;
+  --color-secondary-text: #a1a1aa; /* zinc-400 */
+
+  /* Accents */
+  --color-accent-blue: #2563eb;   /* blue-600 */
+  --color-accent-yellow: #eab308; /* yellow-500 */
+
+  /* Custom Glass Opacities & Blurs */
+  --background-blur-glass: 8px;
+  --color-glass-header: rgba(0, 0, 0, 0.95);
+  --color-glass-input: rgba(24, 24, 27, 0.5);
+  --color-glass-hover: rgba(39, 39, 42, 0.7);
+}
+
