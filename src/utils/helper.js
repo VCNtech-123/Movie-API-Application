@@ -11,3 +11,10 @@ export const debounce = (func, delay) => {
     }
 }
 
+export const movieTypeMovie = (movies) => {
+    return movies.filter( movie => movie.Type.toLowerCase() === "movie");
+}
+
+export const seriesTypeMovie = (movies) => {
+    return movies.filter( movie => movie.Type.toLowerCase() === "series");
+}
