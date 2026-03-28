@@ -13,6 +13,11 @@ export const renderMovies = (movies) => {
     movieContainer.innerHTML = cardHolder;
 }
 
+const showMovieInfo = () => {
+    return ``
+}
+
+
 export const toggleLoadingScreen = () => {
     const loadingElement = document.querySelector('[data-content="loading_screen"]');
     loadingElement.classList.toggle('hidden');

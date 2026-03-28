@@ -12,7 +12,7 @@ export const createMovieCard = (movie) => {
                       <p class="text-xs lg:text-xs">${movie.Year}</p>
                       <div class="flex items-center gap-1">
                         <img src="src/assets/star.svg" alt="star" class="w-4">
-                        <p class="text-primary-text text-xs">8.8</p>
+                        <p class="text-primary-text text-xs">${movie.movieData.imdbRating}</p>
                       </div>
                     </div>
                   </div>

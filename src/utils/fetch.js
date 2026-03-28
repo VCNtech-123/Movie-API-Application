@@ -1,22 +1,39 @@
 import { toggleLoadingScreen } from '../components/renderMovie.js'
 
 
-export const fetchMovies = async (movieUrl) => {
-
+export const fetchMovies = async (searchValue) => {
     try {
         toggleLoadingScreen();
-        const response = await fetch(movieUrl);
-
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+        let allMovies = [];
+        let moreCard = true;
+        let page = 1;
+        while (moreCard && page < 5) {
+            const response = await fetch(`http://www.omdbapi.com/?apikey=cdee90bf&s=${searchValue}&page=${page}`);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const data = await response.json(); 
+            if (data.Response === "False") {
+                moreCard = false;
+            }
+            else {
+                allMovies.push(...data.Search);
+                page++
+            }
         }
-
-         const data = await response.json();
-         toggleLoadingScreen();
-        return data;
-    } catch (e){
+        
+        const movies = await Promise.all(allMovies.map(async (movie) => {
+            const imdbResponse = await fetch(`http://www.omdbapi.com/?apikey=cdee90bf&i=${movie.imdbID}`);
+            const movieData = await imdbResponse.json();
+            return {...movie, movieData }
+            }));
+        
+        return movies;
+    } catch (error){
         console.error("Failed to fetch movies:", error);
-        return null;
+        return [];
     }
-    
-};
+    finally {
+        toggleLoadingScreen();
+    }
+}
