@@ -41,17 +41,20 @@ header.addEventListener('click', e => {
 
       targetBtn.classList.add('bg-tertiary-bg');
       otherBtn?.classList.remove('bg-tertiary-bg');
-})
+});
 
 const movieContainer = document.querySelector('[data-content="movie_container"]');
 
 movieContainer.addEventListener('click', e => {
-  const targetCard = e.target.closest('[data-content="movie_poster"]');
+  const targetCard = e.target.closest('[data-content="movie_card"]');
 
     if (targetCard) {
-      console.log(true)
+      console.log(targetCard);
+      console.log(targetCard.dataset.id);
       const infoCard = utilities.movieFinder(movies, targetCard.dataset.id);
       renderInfoCard(infoCard);
+      console.log(movies);
+      console.log(infoCard)
     }
 })
 

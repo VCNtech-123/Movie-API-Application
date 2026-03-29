@@ -20,5 +20,5 @@ export const seriesTypeMovie = (movies) => {
 }
 
 export const movieFinder = (movies, id) => {
-    return movies.find(movie => movie.imdbId === id);
+    return movies.find(movie => movie.imdbID === id);
 }

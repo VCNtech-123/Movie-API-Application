@@ -25,7 +25,7 @@ export const showMovieInfoCard = (movie) => {
                     </div>
                   </div>  
                   <div class="flex flex-col items-end">
-                    <div class="flex items-center gap-1.5 bg-yellow-500/10 px-3 py-1 rounded-full border border-yellow-500/20">
+                    <div class="flex justify-center items-center gap-1.5 bg-yellow-500/10 px-3 py-1 rounded-full border border-yellow-500/20">
                       <img src="src/assets/star.svg" alt="star" class="w-4">
                       <p class="text-yellow-500 font-bold text-sm">${movie.movieData.imdbRating}</p>
                     </div>

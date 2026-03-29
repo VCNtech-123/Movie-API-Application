@@ -10,16 +10,16 @@
   /* Backgrounds */
   --background-image-body-bg: linear-gradient(180deg, #0f0f0f 0%, #080808 50%, #000000 100%);
   --color-primary-bg: #000000;
-  --color-secondary-bg: #18181b; /* zinc-900 */
-  --color-tertiary-bg: #27272a;  /* zinc-800 */
+  --color-secondary-bg: #18181b; 
+  --color-tertiary-bg: #27272a;  
 
   /* Text Colors */
   --color-primary-text: #ffffff;
-  --color-secondary-text: #a1a1aa; /* zinc-400 */
+  --color-secondary-text: #a1a1aa; 
 
   /* Accents */
-  --color-accent-blue: #2563eb;   /* blue-600 */
-  --color-accent-yellow: #eab308; /* yellow-500 */
+  --color-accent-blue: #2563eb;  
+  --color-accent-yellow: #eab308; 
 
   /* Custom Glass Opacities & Blurs */
   --background-blur-glass: 8px;
