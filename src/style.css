@@ -1,6 +1,12 @@
 @import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @theme {
+  --font-title: "Montserrat", sans-serif;
+  --font-body: "Inter", sans-serif;
+  
   /* Backgrounds */
   --background-image-body-bg: linear-gradient(180deg, #0f0f0f 0%, #080808 50%, #000000 100%);
   --color-primary-bg: #000000;
