@@ -18,3 +18,7 @@ export const movieTypeMovie = (movies) => {
 export const seriesTypeMovie = (movies) => {
     return movies.filter( movie => movie.Type.toLowerCase() === "series");
 }
+
+export const movieFinder = (movies, id) => {
+    return movies.find(movie => movie.imdbId === id);
+}
