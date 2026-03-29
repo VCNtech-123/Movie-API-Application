@@ -1,3 +1,4 @@
+const baseURL = import.meta.env.BASE_URL;
 
 export const showMovieInfoCard = (movie) => {
     return `
@@ -26,7 +27,7 @@ export const showMovieInfoCard = (movie) => {
                   </div>  
                   <div class="flex flex-col items-end">
                     <div class="flex justify-center items-center gap-1.5 bg-yellow-500/10 px-3 py-1 rounded-full border border-yellow-500/20">
-                      <img src="src/assets/star.svg" alt="star" class="w-4">
+                      <img src="${baseURL}assets/star.svg" alt="star" class="w-4">
                       <p class="text-yellow-500 font-bold text-sm">${movie.movieData.imdbRating}</p>
                     </div>
                     <p class="text-[10px] text-primary-text/40 mt-1 uppercase tracking-widest">IMDb Rating</p>
