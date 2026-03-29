@@ -22,3 +22,11 @@ export const seriesTypeMovie = (movies) => {
 export const movieFinder = (movies, id) => {
     return movies.find(movie => movie.imdbID === id);
 }
+
+export const movieFinderIndex = (movies, id) => {
+    return movies.findIndex(movie => movie.imdbID === id);
+}
+
+export const movieExist = (savedMovies, movieId) => {
+    return savedMovies.some(movie => movie.imdbID === movieId);
+}

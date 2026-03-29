@@ -20,6 +20,7 @@
   /* Accents */
   --color-accent-blue: #2563eb;  
   --color-accent-yellow: #eab308; 
+  --color-saved-bg: #facc15;
 
   /* Custom Glass Opacities & Blurs */
   --background-blur-glass: 8px;

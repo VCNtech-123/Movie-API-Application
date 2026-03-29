@@ -1,17 +1,27 @@
 
-import { createMovieCard } from './movieCard.js';
+import { createMovieCard, createSaveButton } from './movieCard.js';
 import { showMovieInfoCard } from './movieInfo.js';
+import { movieExist } from '../utils/helper.js'
 
-export const renderMovies = (movies) => {
+export const renderMovies = (movies, savedMovies) => {
     const movieContainer = document.querySelector('[data-content="movie_container"]');
-
-    let cardHolder = '';
+    movieContainer.innerHTML = '';
 
     movies.forEach (movie => {
-        cardHolder += createMovieCard(movie);
+        const newMovieCard = document.createElement('div');
+        newMovieCard.classList.add('w-[calc(50%-0.5rem)]', 'flex', 'flex-col', 'gap-2', 'bg-secondary-bg', 'rounded-xl', 'overflow-hidden', 'relative', 'lg:w-[calc(16.66%-1rem)]', 'lg:bg-transparent');
+        newMovieCard.dataset.id = movie.imdbID;
+        newMovieCard.dataset.content = 'movie_card';
+        newMovieCard.innerHTML = createMovieCard(movie);
+
+        if(movieExist(savedMovies, newMovieCard.dataset.id)) {
+            newMovieCard.insertAdjacentHTML('afterbegin', createSaveButton('bg-saved-bg/70'));
+        }  
+        else {
+             newMovieCard.insertAdjacentHTML('afterbegin', createSaveButton('bg-black/70'))
+        }
+        movieContainer.appendChild(newMovieCard);
     })
-    
-    movieContainer.innerHTML = cardHolder;
 }
 
 export const renderInfoCard = (infoCard) => {
@@ -38,7 +48,21 @@ export const renderInfoCard = (infoCard) => {
     containerScreen.appendChild(card);
 }
 
+export const saveStateHeader = (number) => {
+    const movieContainer = document.querySelector('[data-content="movie_container"]');
+    movieContainer.insertAdjacentHTML('afterbegin', `<p class="w-full block text-lg font-bold text-secondary-text">Saved ( <span class="text-primary-text">${number}</span> )</p>`)
+}
+
 export const toggleLoadingScreen = () => {
+    const movieContainer = document.querySelector('[data-content="movie_container"]');
+    movieContainer.innerHTML = '';
+    
     const loadingElement = document.querySelector('[data-content="loading_screen"]');
     loadingElement.classList.toggle('hidden');
 }
+
+export const updateSaveCounter = (movies) => {
+    const savedCounter = document.querySelector('[data-content="saved_movie"]');
+    savedCounter.textContent = movies.length;
+}
+

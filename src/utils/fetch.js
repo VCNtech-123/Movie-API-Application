@@ -8,7 +8,7 @@ export const fetchMovies = async (searchValue) => {
         let moreCard = true;
         let page = 1;
         while (moreCard && page < 5) {
-            const response = await fetch(`https://www.omdbapi.com/?apikey=cdee90bf&s=${searchValue}&page=${page}`);
+            const response = await fetch(`https://www.omdbapi.com/?apikey=770599fc&s=${searchValue}&page=${page}`);
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
@@ -23,7 +23,7 @@ export const fetchMovies = async (searchValue) => {
         }
         
         const movies = await Promise.all(allMovies.map(async (movie) => {
-            const imdbResponse = await fetch(`https://www.omdbapi.com/?apikey=cdee90bf&i=${movie.imdbID}`);
+            const imdbResponse = await fetch(`https://www.omdbapi.com/?apikey=770599fc&i=${movie.imdbID}`);
             const movieData = await imdbResponse.json();
             return {...movie, movieData }
             }));
